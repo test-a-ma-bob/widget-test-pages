@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" data-qa-hl>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="qa-base" content="../">
+  <title>Generic widget test page</title>
+  <link rel="stylesheet" href="../assets/site.css">
+    <script src="../assets/qa.js"></script>
+</head>
+<body data-variant="widget" data-page="index">
+  <header class="site-header">
+    <div class="brand-mark" translate="no">Test pages</div>
+    <nav><a href="./index.html">Reload this page</a><a href="../">Home</a><a href="./index.html#section">Jump to #section</a></nav>
+    <div id="qa-slot-header" class="widget-slot"></div>
+  </header>
+  <main>
+    <h1>Generic widget test page</h1>
+    <p class="lead">A widget is embedded here from the <code>id</code> query parameter. Use <code>place=inline|body|both</code> to choose where the container goes.</p>
+    <h2>Content area</h2>
+    <p>This page has a little neutral English text so widgets that read or change page content have something to work with.</p>
+    <ul><li>First list item</li><li>Second list item</li><li>Third list item</li></ul>
+    <p><button type="button">Sample button</button></p>
+    <h2>Dynamic content</h2>
+    <p><button type="button" id="qa-load-more">Load more</button></p>
+    <p id="qa-auto" hidden>The block below appeared automatically three seconds after load.</p>
+    <div id="qa-dyn"></div>
+    <template id="qa-dyn-tpl"><p class="dyn">Dynamic block #<span data-n></span>: this paragraph was added after the page loaded.</p></template>
+    <div class="spacer"><p>Scroll down to reach the anchor section.</p></div>
+    <section id="section"><h2>Anchor section</h2><p>This is the element with id="section".</p></section>
+  </main>
+  <footer><p>Widget test pages</p></footer>
+</body>
+</html>

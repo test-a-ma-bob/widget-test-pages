@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Widget test pages</title>
+  <link rel="stylesheet" href="./assets/site.css">
+  <style>main{max-width:900px}code{background:#eee;padding:1px 4px;border-radius:3px}table{border-collapse:collapse;width:100%;font-size:14px}td,th{border:1px solid #ddd;padding:4px 8px;text-align:left;vertical-align:top}input{font:inherit;padding:6px;width:26em}#links a{display:block}</style>
+</head>
+<body class="notranslate" translate="no">
+  <main>
+    <h1>Widget test pages</h1>
+    <p>Static pages that embed a widget from query parameters, with a small debug panel.</p>
+    <form id="f">
+      <p><label>Widget id(s), dashed, comma-separated:<br><input id="id" name="id" placeholder="00000000-0000-0000-0000-000000000000" required></label></p>
+      <p><label>Placement <select id="place"><option>inline</option><option>body</option><option>both</option></select></label>
+         <label>lazy <select id="lazy" style="width:auto"><option value="">default</option><option value="1">1 (always lazy)</option><option value="0">0 (never lazy)</option></select></label></p>
+      <p><label>Extra params (optional): <input id="extra" placeholder="ga=G-XXXX&amp;nostorage=1" style="width:18em"></label></p>
+      <p><button>Build scenario links</button></p>
+    </form>
+    <div id="links"></div>
+    <h2>Pages</h2>
+    <table>
+      <tr><th>Path</th><th>&lt;html lang&gt;</th><th>Content language</th></tr>
+      <tr><td><code>/en/</code></td><td>en</td><td>English</td></tr>
+      <tr><td><code>/de/</code></td><td>de</td><td>German</td></tr>
+      <tr><td><code>/pt-PT/</code></td><td>pt-PT</td><td>Portuguese (Portugal)</td></tr>
+      <tr><td><code>/pt/</code></td><td>pt</td><td>Portuguese</td></tr>
+      <tr><td><code>/nolang/</code></td><td>(no attribute)</td><td>English</td></tr>
+      <tr><td><code>/widget/</code></td><td>en, or <code>?hl=&lt;code&gt;</code> / <code>hl=none</code></td><td>English, generic page for any widget</td></tr>
+    </table>
+    <p>Each language folder has <code>index.html</code> and <code>page2.html</code>. Links between them keep every query parameter except <code>lang</code>.</p>
+    <h2>Query parameters</h2>
+    <table>
+      <tr><td><code>id</code></td><td>Widget id(s). Several allowed: <code>id=a,b</code>.</td></tr>
+      <tr><td><code>place</code></td><td><code>inline</code> (header slot, default), <code>body</code> (end of body; alias <code>floating</code>), <code>both</code>.</td></tr>
+      <tr><td><code>lazy=1|0</code></td><td>Force lazy loading on or off. Default: inline is lazy, body is not.</td></tr>
+      <tr><td><code>ga</code> / <code>gtm</code></td><td>Load real gtag.js / GTM. Without them, analytics calls are only logged in the panel.</td></tr>
+      <tr><td><code>analytics</code></td><td><code>gtag</code> (default stub), <code>datalayer</code> (dataLayer only), <code>none</code>.</td></tr>
+      <tr><td><code>nostorage=1</code></td><td>localStorage throws SecurityError (blocked-storage simulation).</td></tr>
+      <tr><td><code>watch</code></td><td>Comma-separated URL substrings; matching network requests are counted in the panel.</td></tr>
+      <tr><td><code>panel</code></td><td><code>0</code> hides the debug panel, <code>min</code> starts it collapsed.</td></tr>
+      <tr><td><code>hl</code></td><td><code>/widget/</code> only: html <code>lang</code> to set (<code>none</code> removes it).</td></tr>
+    </table>
+  </main>
+  <script>
+    var S = [
+      ['Main: en page', 'en/index.html'], ['en page 2', 'en/page2.html'], ['en + anchor', 'en/index.html#section'],
+      ['en + ?lang=de', 'en/index.html', 'lang=de'], ['de page', 'de/index.html'], ['pt-PT page', 'pt-PT/index.html'],
+      ['pt page', 'pt/index.html'], ['No lang attribute', 'nolang/index.html'], ['Blocked localStorage', 'en/index.html', 'nostorage=1'],
+      ['Floating / body placement', 'en/index.html', 'place=body'], ['Generic widget page', 'widget/index.html']
+    ];
+    var q = new URLSearchParams(location.search); if (q.get('id')) document.getElementById('id').value = q.get('id');
+    function build() {
+      var id = document.getElementById('id').value.trim(); if (!id) return;
+      var base = 'id=' + encodeURIComponent(id).replace(/%2C/g, ',') + '&place=' + document.getElementById('place').value + (document.getElementById('lazy').value ? '&lazy=' + document.getElementById('lazy').value : '');
+      var ex = document.getElementById('extra').value.trim().replace(/^[?&]/, ''); if (ex) base += '&' + ex;
+      document.getElementById('links').innerHTML = '<h2>Scenario links</h2>' + S.map(function (s) {
+        var parts = s[1].split('#'); var u = './' + parts[0] + '?' + base + (s[2] ? '&' + s[2] : '') + (parts[1] ? '#' + parts[1] : '');
+        return '<a href="' + u + '">' + s[0] + ' — <code>' + u + '</code></a>';
+      }).join('');
+    }
+    document.getElementById('f').addEventListener('submit', function (e) { e.preventDefault(); build(); history.replaceState(null, '', '?id=' + document.getElementById('id').value.trim()); });
+    if (q.get('id')) build();
+  </script>
+</body>
+</html>
