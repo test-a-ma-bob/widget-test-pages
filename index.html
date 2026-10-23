@@ -27,6 +27,11 @@
       <tr><td><code>/pt-PT/</code></td><td>pt-PT</td><td>Portuguese (Portugal)</td></tr>
       <tr><td><code>/pt/</code></td><td>pt</td><td>Portuguese</td></tr>
       <tr><td><code>/nolang/</code></td><td>(no attribute)</td><td>English</td></tr>
+      <tr><td><code>/en-US/</code></td><td>en-US</td><td>English</td></tr>
+      <tr><td><code>/de-DE/</code></td><td>de-DE</td><td>German</td></tr>
+      <tr><td><code>/de-nolang/</code></td><td>(no attribute)</td><td>German</td></tr>
+      <tr><td><code>/en-de/</code></td><td>en</td><td>German (mismatch)</td></tr>
+      <tr><td><code>/fr-en/</code></td><td>fr</td><td>English (mismatch)</td></tr>
       <tr><td><code>/widget/</code></td><td>en, or <code>?hl=&lt;code&gt;</code> / <code>hl=none</code></td><td>English, generic page for any widget</td></tr>
     </table>
     <p>Each language folder has <code>index.html</code> and <code>page2.html</code>. Links between them keep every query parameter except <code>lang</code>.</p>
@@ -47,7 +52,7 @@
     var S = [
       ['Main: en page', 'en/index.html'], ['en page 2', 'en/page2.html'], ['en + anchor', 'en/index.html#section'],
       ['en + ?lang=de', 'en/index.html', 'lang=de'], ['de page', 'de/index.html'], ['pt-PT page', 'pt-PT/index.html'],
-      ['pt page', 'pt/index.html'], ['No lang attribute', 'nolang/index.html'], ['Blocked localStorage', 'en/index.html', 'nostorage=1'],
+      ['pt page', 'pt/index.html'], ['No lang attribute', 'nolang/index.html'], ['en-US page', 'en-US/index.html'], ['German, no lang', 'de-nolang/index.html'], ['lang=en, German text', 'en-de/index.html'], ['lang=fr, English text', 'fr-en/index.html'], ['Blocked localStorage', 'en/index.html', 'nostorage=1'],
       ['Floating / body placement', 'en/index.html', 'place=body'], ['Generic widget page', 'widget/index.html']
     ];
     var q = new URLSearchParams(location.search); if (q.get('id')) document.getElementById('id').value = q.get('id');

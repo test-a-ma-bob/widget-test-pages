@@ -8,6 +8,11 @@ const VARIANTS = [
   { dir: 'pt-PT', lang: 'pt-PT', copy: 'pt' },
   { dir: 'pt', lang: 'pt', copy: 'pt' },
   { dir: 'nolang', lang: null, copy: 'en' },
+  { dir: 'en-US', lang: 'en-US', copy: 'en' },
+  { dir: 'de-DE', lang: 'de-DE', copy: 'de' },
+  { dir: 'de-nolang', lang: null, copy: 'de' },
+  { dir: 'en-de', lang: 'en', copy: 'de' },
+  { dir: 'fr-en', lang: 'fr', copy: 'en' },
 ];
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 function page(v, key) {

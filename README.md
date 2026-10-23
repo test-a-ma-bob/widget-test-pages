@@ -5,7 +5,7 @@ Static test pages that embed a widget from URL query parameters, with a small de
 ## Pages
 
 - `/` – landing page with a link builder
-- `/en/`, `/de/`, `/pt-PT/`, `/pt/` – the same content with that `<html lang>`; `/nolang/` – English without a `lang` attribute
+- `/en/`, `/de/`, `/pt-PT/`, `/pt/` – the same content with that `<html lang>`; `/nolang/` – English without a `lang` attribute; `/en-US/` – English, `/de-DE/` – German; `/de-nolang/` – German without a `lang` attribute; `/en-de/` – German content with `lang="en"`, `/fr-en/` – English content with `lang="fr"` (mismatch pages)
 - `/widget/` – generic page for any widget
 - Each language folder has `index.html` and `page2.html` with headings, a list, buttons, exclusion test elements, dynamic content (a Load more button and a block added 3 s after load) and an anchor `#section` far down the page.
 
