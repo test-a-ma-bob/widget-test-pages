@@ -33,8 +33,14 @@
       <tr><td><code>/en-de/</code></td><td>en</td><td>German (mismatch)</td></tr>
       <tr><td><code>/fr-en/</code></td><td>fr</td><td>English (mismatch)</td></tr>
       <tr><td><code>/widget/</code></td><td>en, or <code>?hl=&lt;code&gt;</code> / <code>hl=none</code></td><td>English, generic page for any widget</td></tr>
+      <tr><td><code>/pricing-en/</code></td><td>en</td><td>English shop / pricing samples</td></tr>
+      <tr><td><code>/pricing-de/</code></td><td>de</td><td>German shop / pricing samples</td></tr>
+      <tr><td><code>/pricing-fr/</code></td><td>fr</td><td>French shop / pricing samples</td></tr>
+      <tr><td><code>/pricing-ru/</code></td><td>ru</td><td>Russian shop / pricing samples</td></tr>
+      <tr><td><code>/pricing-nolang/</code></td><td>(no attribute)</td><td>English shop / pricing (no lang)</td></tr>
     </table>
     <p>Each language folder has <code>index.html</code> and <code>page2.html</code>. Links between them keep every query parameter except <code>lang</code>.</p>
+    <p>The <code>/pricing-*</code> pages show shop-style amounts, a cart, a pricing table and dynamic totals.</p>
     <h2>Query parameters</h2>
     <table>
       <tr><td><code>id</code></td><td>Widget id(s). Several allowed: <code>id=a,b</code>.</td></tr>
@@ -53,7 +59,9 @@
       ['Main: en page', 'en/index.html'], ['en page 2', 'en/page2.html'], ['en + anchor', 'en/index.html#section'],
       ['en + ?lang=de', 'en/index.html', 'lang=de'], ['de page', 'de/index.html'], ['pt-PT page', 'pt-PT/index.html'],
       ['pt page', 'pt/index.html'], ['No lang attribute', 'nolang/index.html'], ['en-US page', 'en-US/index.html'], ['German, no lang', 'de-nolang/index.html'], ['lang=en, German text', 'en-de/index.html'], ['lang=fr, English text', 'fr-en/index.html'], ['Blocked localStorage', 'en/index.html', 'nostorage=1'],
-      ['Floating / body placement', 'en/index.html', 'place=body'], ['Generic widget page', 'widget/index.html']
+      ['Floating / body placement', 'en/index.html', 'place=body'], ['Generic widget page', 'widget/index.html'],
+      ['Pricing EN', 'pricing-en/index.html'], ['Pricing DE', 'pricing-de/index.html'], ['Pricing FR', 'pricing-fr/index.html'],
+      ['Pricing RU', 'pricing-ru/index.html'], ['Pricing (no lang)', 'pricing-nolang/index.html']
     ];
     var q = new URLSearchParams(location.search); if (q.get('id')) document.getElementById('id').value = q.get('id');
     function build() {

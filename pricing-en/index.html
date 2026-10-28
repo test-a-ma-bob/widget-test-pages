@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="qa-base" content="../">
+  <title>Shop &amp; pricing — Northwind Goods</title>
+  <link rel="stylesheet" href="../assets/site.css">
+  <script src="../assets/qa.js"></script>
+  <script src="../assets/pricing.js"></script>
+</head>
+<body data-variant="pricing-en" data-page="pricing">
+  <header class="site-header">
+    <div class="brand-mark" translate="no">Northwind Goods</div>
+    <nav>
+      <a href="../">Home</a>
+      <a href="./index.html">Shop</a>
+    </nav>
+    <div id="qa-slot-header" class="widget-slot"></div>
+  </header>
+  <main>
+    <h1>Northwind Goods — shop and pricing</h1>
+    <p class="lead">A small harbour shop for lanterns, oak trays and spare glass. Below you will find sample prices, a cart summary and a few product cards.</p>
+
+    <h2>Price formats you may see on the site</h2>
+    <p>Currency symbols before or after the amount, ISO codes, and mixed separators:</p>
+    <ul class="formats">
+      <li>$19.99 · €19.99 · 19,99 € · £5 · ¥1,200 · ₽1 990 · 1 990 ₽ · ₹499 · CHF 49.90 · kr 99</li>
+      <li>USD 1,250.00 · 1.250,00 EUR · 1,234,567.89 · 1.234.567,89 · 1 234 567,89 · 1 234 567,89 · 1'234.50</li>
+      <li>Negatives and discounts: -$5.00 · −15% · save 20% · price range $10–$20 · from $9/mo · $9.99/month</li>
+      <li>Large and small: 0.00042 BTC · $1.2M · 3,5 Mio. € · per-unit $0.45/oz</li>
+    </ul>
+
+    <h2>Featured products</h2>
+    <div class="price-grid">
+      <article class="card">
+        <h3 title="Buy Harbour Glow for $49.00">Harbour Glow lantern</h3>
+        <p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22160%22%20height%3D%2290%22%3E%3Crect%20fill%3D%22%23eef3fb%22%20width%3D%22160%22%20height%3D%2290%22%2F%3E%3Ctext%20x%3D%2280%22%20y%3D%2250%22%20text-anchor%3D%22middle%22%20fill%3D%22%232c3e50%22%20font-size%3D%2212%22%3Eproduct%3C%2Ftext%3E%3C%2Fsvg%3E" width="160" height="90" alt="Harbour Glow lantern, $49.00"></p>
+        <p class="price"><span class="old">$59.00</span><span class="cur">$</span><span class="int">49</span><sup class="dec">.00</sup> <span class="badge">−17%</span></p>
+        <p class="meta">SKU NW-HG-2048 · qty in stock: 36</p>
+        <p><button type="button" class="cta" title="Buy Harbour Glow for $49.00">Buy Harbour Glow for $49.00</button></p>
+      </article>
+      <article class="card">
+        <h3 title="Oak tray £38">Oak serving tray</h3>
+        <p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22160%22%20height%3D%2290%22%3E%3Crect%20fill%3D%22%23eef3fb%22%20width%3D%22160%22%20height%3D%2290%22%2F%3E%3Ctext%20x%3D%2280%22%20y%3D%2250%22%20text-anchor%3D%22middle%22%20fill%3D%22%232c3e50%22%20font-size%3D%2212%22%3Eproduct%3C%2Ftext%3E%3C%2Fsvg%3E" width="160" height="90" alt="Oak tray priced at £38"></p>
+        <p class="price">£38.00</p>
+        <p class="meta">Made in 2024 · phone for wholesale +1 (415) 555-0199</p>
+        <p><button type="button" class="cta" title="Oak tray £38">Oak tray £38</button></p>
+      </article>
+      <article class="card">
+        <h3 title="Spare glass ¥4,800">Spare glass set</h3>
+        <p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22160%22%20height%3D%2290%22%3E%3Crect%20fill%3D%22%23eef3fb%22%20width%3D%22160%22%20height%3D%2290%22%2F%3E%3Ctext%20x%3D%2280%22%20y%3D%2250%22%20text-anchor%3D%22middle%22%20fill%3D%22%232c3e50%22%20font-size%3D%2212%22%3Eproduct%3C%2Ftext%3E%3C%2Fsvg%3E" width="160" height="90" alt="Spare glass ¥4,800"></p>
+        <p class="price">¥4,800</p>
+        <p class="meta">Order #ORD-88421 · ships in 3 days</p>
+        <p><button type="button" class="cta" title="Spare glass ¥4,800">Spare glass ¥4,800</button></p>
+      </article>
+    </div>
+    <p>Split markup example (same product): <span class="price"><span class="cur">$</span><span class="int">19</span><sup>.99</sup></span> <span class="old">$24.99</span></p>
+
+    <h2>Plan comparison</h2>
+    <table class="pricing-table">
+      <thead><tr><th>Plan</th><th>Monthly</th><th>Yearly</th><th>Seats</th></tr></thead>
+      <tbody>
+        <tr><td>Starter</td><td class="num">from $9/mo</td><td class="num">$99/year</td><td class="num">1</td></tr>
+        <tr><td>Workshop</td><td class="num">$29.00/month</td><td class="num">USD 290.00</td><td class="num">5</td></tr>
+        <tr><td>Harbour</td><td class="num">€49,90 / Monat</td><td class="num">CHF 490.00</td><td class="num">20</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Cart summary</h2>
+    <div class="cart">
+      <div class="row"><span>Subtotal</span><span>$98.00</span></div>
+      <div class="row"><span>Shipping</span><span>$8.50</span></div>
+      <div class="row"><span>Tax / VAT (8%)</span><span>$8.52</span></div>
+      <div class="row"><span>Discount (−15%)</span><span>−$14.70</span></div>
+      <div class="row total"><span>Total</span><span>$100.32</span></div>
+    </div>
+
+    <h2>Adjust quantity</h2>
+    <p>Harbour Glow lantern — <span id="qa-unit-price" data-amount="49" data-currency="USD" data-format="en-US">$49.00</span> each</p>
+    <div class="qty">
+      <button type="button" id="qa-qty-minus" aria-label="−">−</button>
+      <span id="qa-qty">1</span>
+      <button type="button" id="qa-qty-plus" aria-label="+">+</button>
+      <span>Line total: <strong id="qa-line-total">$49.00</strong></span>
+    </div>
+
+    <h2>Gift wrap options</h2>
+    <p><label>Choose wrap
+      <select class="sample-select" name="wrap">
+        <option value="0">No wrap — $0.00</option>
+        <option value="3.5">Kraft paper — $3.50</option>
+        <option value="7.99">Cloth ribbon — $7.99</option>
+      </select>
+    </label></p>
+
+    <h2>Custom tip</h2>
+    <p><label><input class="sample-input" type="text" name="tip" placeholder="e.g. $5.00" value="2.50"></label></p>
+
+    <h2>Live offer</h2>
+    <p id="qa-delayed" data-text="Flash deal: buy 2 for $79 (save $19)!">A limited offer will appear here in two seconds…</p>
+
+    <h2>Not money — kept for contrast</h2>
+    <ul class="meta">
+      <li>Quantity on shelf: 12</li>
+      <li>SKU: NW-GOODS-2048</li>
+      <li>Support phone: +1 (415) 555-0199</li>
+      <li>Opened: March 15, 2014</li>
+      <li>Catalog year: 2026</li>
+      <li>Order number: ORD-88421</li>
+    </ul>
+  </main>
+  <footer><p>Northwind Goods · prices shown for demonstration · tax included where noted</p></footer>
+</body>
+</html>

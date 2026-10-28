@@ -7,11 +7,12 @@ Static test pages that embed a widget from URL query parameters, with a small de
 - `/` – landing page with a link builder
 - `/en/`, `/de/`, `/pt-PT/`, `/pt/` – the same content with that `<html lang>`; `/nolang/` – English without a `lang` attribute; `/en-US/` – English, `/de-DE/` – German; `/de-nolang/` – German without a `lang` attribute; `/en-de/` – German content with `lang="en"`, `/fr-en/` – English content with `lang="fr"` (mismatch pages)
 - `/widget/` – generic page for any widget
+- `/pricing-en/`, `/pricing-de/`, `/pricing-fr/`, `/pricing-ru/` – Northwind Goods shop pages with mixed currency and amount formats in that language; `/pricing-nolang/` – the English shop page without a `lang` attribute
 - Each language folder has `index.html` and `page2.html` with headings, a list, buttons, exclusion test elements, dynamic content (a Load more button and a block added 3 s after load) and an anchor `#section` far down the page.
 
 Internal links keep all query parameters except `lang`.
 
-The language folders are generated: edit `src/content.js` or `build.js`, then run `node build.js`.
+The language folders are generated: edit `src/content.js` or `build.js`, then run `node build.js`. Pricing pages: edit `build-pricing.js`, then run `node build-pricing.js`.
 
 ## Query parameters
 

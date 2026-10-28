@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="qa-base" content="../">
+  <title>Boutique et tarifs — Northwind Goods</title>
+  <link rel="stylesheet" href="../assets/site.css">
+  <script src="../assets/qa.js"></script>
+  <script src="../assets/pricing.js"></script>
+</head>
+<body data-variant="pricing-fr" data-page="pricing">
+  <header class="site-header">
+    <div class="brand-mark" translate="no">Northwind Goods</div>
+    <nav>
+      <a href="../">Home</a>
+      <a href="./index.html">Boutique</a>
+    </nav>
+    <div id="qa-slot-header" class="widget-slot"></div>
+  </header>
+  <main>
+    <h1>Northwind Goods — boutique et tarifs</h1>
+    <p class="lead">Une petite boutique du port pour lanternes, plateaux en chêne et verre de rechange. Ci-dessous : exemples de prix, un panier et quelques fiches produit.</p>
+
+    <h2>Formats de prix sur le site</h2>
+    <p>Symboles avant ou après le montant, codes ISO et séparateurs variés :</p>
+    <ul class="formats">
+      <li>19,99 € · €19,99 · $19.99 · £5 · ¥1 200 · 1 990 ₽ · ₹499 · CHF 49.90 · 99 kr</li>
+      <li>1 250,00 EUR · USD 1,250.00 · 1 234 567,89 · 1 234 567,89 · 1.234.567,89 · 1'234.50</li>
+      <li>Négatifs et remises : −5,00 € · −15 % · économisez 20 % · de 10 à 20 € · dès 9 €/mois · 9,99 €/mois</li>
+      <li>Grand et petit : 0,00042 BTC · 1,2 M$ · 3,5 M€ · prix unitaire 0,45 $/oz</li>
+    </ul>
+
+    <h2>Produits mis en avant</h2>
+    <div class="price-grid">
+      <article class="card">
+        <h3 title="Acheter Harbour Glow pour 49,00 €">Lanterne Harbour Glow</h3>
+        <p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22160%22%20height%3D%2290%22%3E%3Crect%20fill%3D%22%23eef3fb%22%20width%3D%22160%22%20height%3D%2290%22%2F%3E%3Ctext%20x%3D%2280%22%20y%3D%2250%22%20text-anchor%3D%22middle%22%20fill%3D%22%232c3e50%22%20font-size%3D%2212%22%3Eproduct%3C%2Ftext%3E%3C%2Fsvg%3E" width="160" height="90" alt="Lanterne Harbour Glow, 49,00 €"></p>
+        <p class="price"><span class="old">59,00 €</span><span class="int">49</span><sup class="dec">,00</sup><span class="cur"> €</span> <span class="badge">−17 %</span></p>
+        <p class="meta">Réf. NW-HG-2048 · stock : 36</p>
+        <p><button type="button" class="cta" title="Acheter Harbour Glow pour 49,00 €">Acheter Harbour Glow pour 49,00 €</button></p>
+      </article>
+      <article class="card">
+        <h3 title="Plateau 38 £">Plateau en chêne</h3>
+        <p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22160%22%20height%3D%2290%22%3E%3Crect%20fill%3D%22%23eef3fb%22%20width%3D%22160%22%20height%3D%2290%22%2F%3E%3Ctext%20x%3D%2280%22%20y%3D%2250%22%20text-anchor%3D%22middle%22%20fill%3D%22%232c3e50%22%20font-size%3D%2212%22%3Eproduct%3C%2Ftext%3E%3C%2Fsvg%3E" width="160" height="90" alt="Plateau en chêne à 38 £"></p>
+        <p class="price">38,00 £</p>
+        <p class="meta">Fabriqué en 2024 · gros +33 1 55 50 19 9</p>
+        <p><button type="button" class="cta" title="Plateau 38 £">Plateau 38 £</button></p>
+      </article>
+      <article class="card">
+        <h3 title="Verre ¥4 800">Set de verre de rechange</h3>
+        <p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22160%22%20height%3D%2290%22%3E%3Crect%20fill%3D%22%23eef3fb%22%20width%3D%22160%22%20height%3D%2290%22%2F%3E%3Ctext%20x%3D%2280%22%20y%3D%2250%22%20text-anchor%3D%22middle%22%20fill%3D%22%232c3e50%22%20font-size%3D%2212%22%3Eproduct%3C%2Ftext%3E%3C%2Fsvg%3E" width="160" height="90" alt="Verre de rechange ¥4 800"></p>
+        <p class="price">¥4 800</p>
+        <p class="meta">Commande #ORD-88421 · expédition en 3 jours</p>
+        <p><button type="button" class="cta" title="Verre ¥4 800">Verre ¥4 800</button></p>
+      </article>
+    </div>
+    <p>Markup fractionné (même produit) : <span class="price"><span class="int">19</span><sup>,99</sup><span class="cur"> €</span></span> <span class="old">24,99 €</span></p>
+
+    <h2>Comparaison des formules</h2>
+    <table class="pricing-table">
+      <thead><tr><th>Formule</th><th>Mensuel</th><th>Annuel</th><th>Places</th></tr></thead>
+      <tbody>
+        <tr><td>Starter</td><td class="num">dès 9 €/mois</td><td class="num">99 €/an</td><td class="num">1</td></tr>
+        <tr><td>Atelier</td><td class="num">29,00 €/mois</td><td class="num">EUR 290,00</td><td class="num">5</td></tr>
+        <tr><td>Port</td><td class="num">CHF 49.90 / month</td><td class="num">CHF 490.00</td><td class="num">20</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Récapitulatif du panier</h2>
+    <div class="cart">
+      <div class="row"><span>Sous-total</span><span>98,00 €</span></div>
+      <div class="row"><span>Livraison</span><span>8,50 €</span></div>
+      <div class="row"><span>TVA (20 %)</span><span>21,30 €</span></div>
+      <div class="row"><span>Remise (−15 %)</span><span>−14,70 €</span></div>
+      <div class="row total"><span>Total</span><span>113,10 €</span></div>
+    </div>
+
+    <h2>Modifier la quantité</h2>
+    <p>Lanterne Harbour Glow — <span id="qa-unit-price" data-amount="49" data-currency="EUR" data-format="fr-FR">49,00 €</span> pièce</p>
+    <div class="qty">
+      <button type="button" id="qa-qty-minus" aria-label="−">−</button>
+      <span id="qa-qty">1</span>
+      <button type="button" id="qa-qty-plus" aria-label="+">+</button>
+      <span>Total ligne : <strong id="qa-line-total">49,00 €</strong></span>
+    </div>
+
+    <h2>Emballage cadeau</h2>
+    <p><label>Choisir l’emballage
+      <select class="sample-select" name="wrap">
+        <option value="0">Sans — 0,00 €</option>
+        <option value="3.5">Papier kraft — 3,50 €</option>
+        <option value="7.99">Ruban en tissu — 7,99 €</option>
+      </select>
+    </label></p>
+
+    <h2>Pourboire</h2>
+    <p><label><input class="sample-input" type="text" name="tip" placeholder="ex. 5,00 €" value="2,50"></label></p>
+
+    <h2>Offre du moment</h2>
+    <p id="qa-delayed" data-text="Offre flash : 2 pour 79 € (économisez 19 €) !">Une offre limitée apparaîtra ici dans deux secondes…</p>
+
+    <h2>Ce n’est pas de l’argent — pour contraste</h2>
+    <ul class="meta">
+      <li>Quantité en rayon : 12</li>
+      <li>Référence : NW-GOODS-2048</li>
+      <li>Téléphone : +33 1 55 50 19 9</li>
+      <li>Ouverture : 15 mars 2014</li>
+      <li>Année du catalogue : 2026</li>
+      <li>N° de commande : ORD-88421</li>
+    </ul>
+  </main>
+  <footer><p>Northwind Goods · prix d’exemple · TVA incluse le cas échéant</p></footer>
+</body>
+</html>

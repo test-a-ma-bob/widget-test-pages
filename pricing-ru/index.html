@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="qa-base" content="../">
+  <title>Магазин и цены — Northwind Goods</title>
+  <link rel="stylesheet" href="../assets/site.css">
+  <script src="../assets/qa.js"></script>
+  <script src="../assets/pricing.js"></script>
+</head>
+<body data-variant="pricing-ru" data-page="pricing">
+  <header class="site-header">
+    <div class="brand-mark" translate="no">Northwind Goods</div>
+    <nav>
+      <a href="../">Home</a>
+      <a href="./index.html">Магазин</a>
+    </nav>
+    <div id="qa-slot-header" class="widget-slot"></div>
+  </header>
+  <main>
+    <h1>Northwind Goods — магазин и цены</h1>
+    <p class="lead">Небольшой магазин у гавани: фонари, дубовые подносы и запасное стекло. Ниже — примеры цен, корзина и несколько карточек товаров.</p>
+
+    <h2>Форматы цен на сайте</h2>
+    <p>Символы валют до и после суммы, ISO-коды и разные разделители:</p>
+    <ul class="formats">
+      <li>1 990 ₽ · ₽1 990 · $19.99 · 19,99 € · €19,99 · £5 · ¥1 200 · ₹499 · CHF 49.90 · 99 kr</li>
+      <li>1 250,00 USD · 1.250,00 EUR · 1 234 567,89 · 1 234 567,89 · 1.234.567,89 · 1,234,567.89 · 1'234.50</li>
+      <li>Отрицательные и скидки: −500 ₽ · −15 % · скидка 20 % · от 10 до 20 $ · от 900 ₽/мес · 9,99 $/месяц</li>
+      <li>Крупные и мелкие: 0,00042 BTC · $1.2M · 3,5 млн € · цена за единицу 0,45 $/унция</li>
+    </ul>
+
+    <h2>Рекомендуемые товары</h2>
+    <div class="price-grid">
+      <article class="card">
+        <h3 title="Купить Harbour Glow за 4 900 ₽">Фонарь Harbour Glow</h3>
+        <p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22160%22%20height%3D%2290%22%3E%3Crect%20fill%3D%22%23eef3fb%22%20width%3D%22160%22%20height%3D%2290%22%2F%3E%3Ctext%20x%3D%2280%22%20y%3D%2250%22%20text-anchor%3D%22middle%22%20fill%3D%22%232c3e50%22%20font-size%3D%2212%22%3Eproduct%3C%2Ftext%3E%3C%2Fsvg%3E" width="160" height="90" alt="Фонарь Harbour Glow, 4 900 ₽"></p>
+        <p class="price"><span class="old">5 900 ₽</span><span class="int">4 900</span><span class="cur"> ₽</span> <span class="badge">−17 %</span></p>
+        <p class="meta">Артикул NW-HG-2048 · на складе: 36</p>
+        <p><button type="button" class="cta" title="Купить Harbour Glow за 4 900 ₽">Купить Harbour Glow за 4 900 ₽</button></p>
+      </article>
+      <article class="card">
+        <h3 title="Поднос £38">Дубовый поднос</h3>
+        <p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22160%22%20height%3D%2290%22%3E%3Crect%20fill%3D%22%23eef3fb%22%20width%3D%22160%22%20height%3D%2290%22%2F%3E%3Ctext%20x%3D%2280%22%20y%3D%2250%22%20text-anchor%3D%22middle%22%20fill%3D%22%232c3e50%22%20font-size%3D%2212%22%3Eproduct%3C%2Ftext%3E%3C%2Fsvg%3E" width="160" height="90" alt="Дубовый поднос £38"></p>
+        <p class="price">£38.00</p>
+        <p class="meta">Сделано в 2024 · опт +7 495 555-01-99</p>
+        <p><button type="button" class="cta" title="Поднос £38">Поднос £38</button></p>
+      </article>
+      <article class="card">
+        <h3 title="Стекло ¥4 800">Набор запасного стекла</h3>
+        <p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22160%22%20height%3D%2290%22%3E%3Crect%20fill%3D%22%23eef3fb%22%20width%3D%22160%22%20height%3D%2290%22%2F%3E%3Ctext%20x%3D%2280%22%20y%3D%2250%22%20text-anchor%3D%22middle%22%20fill%3D%22%232c3e50%22%20font-size%3D%2212%22%3Eproduct%3C%2Ftext%3E%3C%2Fsvg%3E" width="160" height="90" alt="Запасное стекло ¥4 800"></p>
+        <p class="price">¥4 800</p>
+        <p class="meta">Заказ #ORD-88421 · отправка за 3 дня</p>
+        <p><button type="button" class="cta" title="Стекло ¥4 800">Стекло ¥4 800</button></p>
+      </article>
+    </div>
+    <p>Размеченная цена (тот же товар): <span class="price"><span class="int">1 990</span><span class="cur"> ₽</span></span> <span class="old">2 490 ₽</span></p>
+
+    <h2>Сравнение тарифов</h2>
+    <table class="pricing-table">
+      <thead><tr><th>Тариф</th><th>В месяц</th><th>В год</th><th>Места</th></tr></thead>
+      <tbody>
+        <tr><td>Старт</td><td class="num">от 900 ₽/мес</td><td class="num">9 900 ₽/год</td><td class="num">1</td></tr>
+        <tr><td>Мастерская</td><td class="num">2 900 ₽/мес</td><td class="num">USD 290.00</td><td class="num">5</td></tr>
+        <tr><td>Гавань</td><td class="num">CHF 49.90 / month</td><td class="num">CHF 490.00</td><td class="num">20</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Корзина</h2>
+    <div class="cart">
+      <div class="row"><span>Подытог</span><span>9 800 ₽</span></div>
+      <div class="row"><span>Доставка</span><span>850 ₽</span></div>
+      <div class="row"><span>НДС (20 %)</span><span>2 130 ₽</span></div>
+      <div class="row"><span>Скидка (−15 %)</span><span>−1 470 ₽</span></div>
+      <div class="row total"><span>Итого</span><span>11 310 ₽</span></div>
+    </div>
+
+    <h2>Изменить количество</h2>
+    <p>Фонарь Harbour Glow — <span id="qa-unit-price" data-amount="4900" data-currency="RUB" data-format="ru-RU">4 900 ₽</span> шт.</p>
+    <div class="qty">
+      <button type="button" id="qa-qty-minus" aria-label="−">−</button>
+      <span id="qa-qty">1</span>
+      <button type="button" id="qa-qty-plus" aria-label="+">+</button>
+      <span>Сумма строки: <strong id="qa-line-total">4 900 ₽</strong></span>
+    </div>
+
+    <h2>Подарочная упаковка</h2>
+    <p><label>Выберите упаковку
+      <select class="sample-select" name="wrap">
+        <option value="0">Без упаковки — 0 ₽</option>
+        <option value="3.5">Крафт-бумага — 350 ₽</option>
+        <option value="7.99">Тканевая лента — 799 ₽</option>
+      </select>
+    </label></p>
+
+    <h2>Чаевые</h2>
+    <p><label><input class="sample-input" type="text" name="tip" placeholder="напр. 500 ₽" value="250"></label></p>
+
+    <h2>Текущее предложение</h2>
+    <p id="qa-delayed" data-text="Молниеносная акция: 2 шт. за 7 900 ₽ (экономия 1 900 ₽)!">Через две секунды здесь появится ограниченное предложение…</p>
+
+    <h2>Не деньги — для контраста</h2>
+    <ul class="meta">
+      <li>Количество на полке: 12</li>
+      <li>Артикул: NW-GOODS-2048</li>
+      <li>Телефон: +7 495 555-01-99</li>
+      <li>Открытие: 15 марта 2014</li>
+      <li>Год каталога: 2026</li>
+      <li>Номер заказа: ORD-88421</li>
+    </ul>
+  </main>
+  <footer><p>Northwind Goods · демонстрационные цены · налог указан где отмечено</p></footer>
+</body>
+</html>
