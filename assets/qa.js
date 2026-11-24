@@ -125,7 +125,7 @@
   function embed() {
     if (!IDS.length) return;
     IDS.forEach(function (id) {
-      if (PLACE === 'inline' || PLACE === 'both') { var slot = document.getElementById('qa-slot-header') || document.body; slot.appendChild(mk(id, 'inline')); }
+      if (PLACE === 'inline' || PLACE === 'both') { var slot = document.getElementById('qa-slot') || document.getElementById('qa-slot-header') || document.body; slot.appendChild(mk(id, 'inline')); }
       if (PLACE === 'body' || PLACE === 'both') document.body.appendChild(mk(id, 'body'));
     });
     var sc = document.createElement('script'); sc.src = PLATFORM; sc.async = true; document.body.appendChild(sc);

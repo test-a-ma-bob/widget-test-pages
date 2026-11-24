@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="qa-base" content="../">
+  <title>Embed container clipping test page</title>
+  <link rel="stylesheet" href="../assets/site.css">
+  <style>
+    main.clip-main{max-width:1200px}
+    body.edge main.clip-main{max-width:none;padding-left:0;padding-right:0}
+    body.edge .clip-intro,body.edge .clip-controls,body.edge .clip-after,body.edge .clip-state,body.edge .clip-label{padding-left:24px;padding-right:24px}
+    .clip-controls{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:12px 0;font:13px/1.4 ui-monospace,Menlo,Consolas,monospace}
+    .clip-controls button{padding:4px 10px;font-size:13px}
+    .clip-state{font:13px/1.4 ui-monospace,Menlo,Consolas,monospace;background:#eef3fb;padding:6px 8px;border-radius:6px;white-space:pre-wrap}
+    .clip-outer{margin:16px 0}
+    .clip-frame{position:relative;margin:0 auto;background:#fff;outline:2px dashed #c0392b;outline-offset:0}
+    .clip-frame.c-hidden{overflow:hidden}.clip-frame.c-clip{overflow:clip}.clip-frame.c-auto{overflow:auto}.clip-frame.c-scroll{overflow:scroll}
+    .clip-frame.c-x-hidden{overflow-x:hidden}.clip-frame.c-visible{overflow:visible}
+    .clip-frame.c-contain{contain:paint}
+    .clip-frame.resizable{resize:horizontal;min-width:200px;max-width:100%}
+    .clip-transform{transform:translateZ(0)}
+    .clip-label{font:12px ui-monospace,Menlo,Consolas,monospace;color:#c0392b;margin:0 0 4px}
+  </style>
+  <script src="../assets/qa.js"></script>
+</head>
+<body data-variant="clip" data-page="index">
+  <header class="site-header">
+    <div class="brand-mark" translate="no">Test pages</div>
+    <nav><a href="./index.html">Reload this page</a><a href="../">Home</a><a href="./index.html#section">Jump to #section</a></nav>
+  </header>
+  <main class="clip-main">
+    <div class="clip-intro">
+      <h1>Embed container clipping</h1>
+      <p class="lead">The widget from <code>id</code> is placed inside a box that can clip its content. The red dashed line is the edge of the box.</p>
+    </div>
+    <div class="clip-controls" id="clip-controls" translate="no">
+      <span>overflow:</span>
+      <button type="button" data-clip="hidden">hidden</button><button type="button" data-clip="clip">clip</button><button type="button" data-clip="auto">auto</button><button type="button" data-clip="scroll">scroll</button><button type="button" data-clip="x-hidden">x-hidden</button><button type="button" data-clip="contain">contain:paint</button><button type="button" data-clip="visible">visible</button>
+      <span>width:</span>
+      <button type="button" data-w="100%">100%</button><button type="button" data-w="1000px">1000</button><button type="button" data-w="800px">800</button><button type="button" data-w="600px">600</button><button type="button" data-w="360px">360</button>
+      <span>dir:</span>
+      <button type="button" data-dir="ltr">ltr</button><button type="button" data-dir="rtl">rtl</button>
+    </div>
+    <div class="clip-state" id="clip-state" translate="no"></div>
+    <div class="clip-outer" id="clip-outer">
+      <p class="clip-label" id="clip-label" translate="no"></p>
+      <div class="clip-wrap" id="clip-wrap">
+        <div class="clip-frame" id="clip-frame">
+          <div id="qa-slot"></div>
+        </div>
+      </div>
+    </div>
+    <div class="clip-after">
+      <h2>Content after the box</h2>
+      <p>Some neutral text below the box. Scroll down and back up to move the box out of view and return.</p>
+      <div class="spacer"><p>Scroll down to reach the anchor section.</p></div>
+      <section id="section"><h2>Anchor section</h2><p>This is the element with id="section".</p></section>
+    </div>
+  </main>
+  <footer><p>Widget test pages</p></footer>
+  <script>
+  (function () {
+    'use strict';
+    var P = new URLSearchParams(location.search);
+    var frame = document.getElementById('clip-frame'), wrap = document.getElementById('clip-wrap');
+    var MODES = ['hidden', 'clip', 'auto', 'scroll', 'x-hidden', 'contain', 'visible'];
+    var S = {
+      clip: MODES.indexOf(P.get('clip')) !== -1 ? P.get('clip') : (P.get('clip') === 'none' ? 'visible' : 'hidden'),
+      w: P.get('w') || '100%',
+      h: P.get('h') || '',
+      pad: P.get('pad') || '0',
+      on: P.get('on') === 'grandparent' ? 'grandparent' : 'parent',
+      transform: P.get('transform') === '1',
+      resizable: P.get('resize') === '1',
+      dir: P.get('dir') === 'rtl' ? 'rtl' : 'ltr',
+      align: ['left', 'right', 'center'].indexOf(P.get('align')) !== -1 ? P.get('align') : 'center',
+      edge: P.get('edge') === '1'
+    };
+    function cls(el, mode) { MODES.forEach(function (m) { el.classList.remove('c-' + m); }); if (mode) el.classList.add('c-' + mode); }
+    function apply() {
+      var target = S.on === 'grandparent' ? wrap : frame, other = target === wrap ? frame : wrap;
+      cls(target, S.clip); cls(other, null);
+      wrap.classList.toggle('clip-frame', S.on === 'grandparent');
+      frame.style.width = S.w; frame.style.maxWidth = '100%';
+      frame.style.height = S.h || ''; frame.style.padding = /^\d+$/.test(S.pad) ? S.pad + 'px' : S.pad;
+      frame.style.marginLeft = S.align === 'left' ? '0' : 'auto'; frame.style.marginRight = S.align === 'right' ? '0' : 'auto';
+      frame.classList.toggle('resizable', S.resizable);
+      wrap.classList.toggle('clip-transform', S.transform);
+      document.documentElement.setAttribute('dir', S.dir);
+      document.body.classList.toggle('edge', S.edge);
+      var r = frame.getBoundingClientRect();
+      document.getElementById('clip-label').textContent = 'overflow: ' + S.clip + ' on ' + S.on + ' · width ' + S.w + (S.h ? ' · height ' + S.h : '') + ' · padding ' + S.pad + (S.transform ? ' · transformed ancestor' : '') + ' · dir ' + S.dir;
+      document.getElementById('clip-state').textContent = 'box: ' + Math.round(r.left) + '..' + Math.round(r.right) + ' px (' + Math.round(r.width) + ' px wide) · viewport ' + document.documentElement.clientWidth + ' px';
+      if (window.__qa && window.__qa.log) window.__qa.log('qa', 'clip-state', S);
+    }
+    window.__clip = { state: S, set: function (o) { for (var k in o) S[k] = o[k]; apply(); return S; }, box: function () { return frame.getBoundingClientRect(); } };
+    document.getElementById('clip-controls').addEventListener('click', function (e) {
+      var b = e.target.closest('button'); if (!b) return;
+      if (b.dataset.clip) S.clip = b.dataset.clip;
+      if (b.dataset.w) S.w = b.dataset.w;
+      if (b.dataset.dir) S.dir = b.dataset.dir;
+      apply();
+    });
+    window.addEventListener('resize', apply);
+    apply();
+  })();
+  </script>
+</body>
+</html>

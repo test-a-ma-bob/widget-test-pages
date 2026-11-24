@@ -7,6 +7,7 @@ Static test pages that embed a widget from URL query parameters, with a small de
 - `/` – landing page with a link builder
 - `/en/`, `/de/`, `/pt-PT/`, `/pt/` – the same content with that `<html lang>`; `/nolang/` – English without a `lang` attribute; `/en-US/` – English, `/de-DE/` – German; `/de-nolang/` – German without a `lang` attribute; `/en-de/` – German content with `lang="en"`, `/fr-en/` – English content with `lang="fr"` (mismatch pages)
 - `/widget/` – generic page for any widget
+- `/clip/` – embed container clipping: the widget sits inside a box that can clip its content (see the clip parameters below)
 - `/pricing-en/`, `/pricing-de/`, `/pricing-fr/`, `/pricing-ru/` – Northwind Goods shop pages with mixed currency and amount formats in that language; `/pricing-nolang/` – the English shop page without a `lang` attribute
 - Each language folder has `index.html` and `page2.html` with headings, a list, buttons, exclusion test elements, dynamic content (a Load more button and a block added 3 s after load) and an anchor `#section` far down the page.
 
@@ -29,6 +30,23 @@ The language folders are generated: edit `src/content.js` or `build.js`, then ru
 | `hl` | `/widget/` only: `<html lang>` to set (`none` removes it) |
 
 Example: `/en/index.html?id=<widget-id>&place=inline#section`
+
+### `/clip/` parameters
+
+| Param | Meaning |
+|---|---|
+| `clip` | Overflow of the box: `hidden` (default) · `clip` · `auto` · `scroll` · `x-hidden` (`overflow-x:hidden`) · `contain` (`contain:paint`) · `visible` / `none` (no clipping) |
+| `w` | Box width, any CSS length (default `100%`) |
+| `h` | Fixed box height, e.g. `300px` (useful with `auto` / `scroll`) |
+| `pad` | Box padding in px or any CSS length (default `0`) |
+| `on` | `parent` (default) clips the direct parent of the embed · `grandparent` clips one level higher |
+| `transform=1` | Ancestor with `transform` (new containing block) |
+| `resize=1` | The box can be resized by dragging its corner |
+| `align` | `center` (default) · `left` · `right` |
+| `edge=1` | Box touches both edges of the browser window |
+| `dir=rtl` | Sets `<html dir="rtl">` |
+
+Buttons on the page switch overflow, width and direction live. `window.__clip.set({clip:'visible', w:'600px'})` does the same from a script; `window.__clip.box()` returns the box rectangle.
 
 ## Debug panel
 

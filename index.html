@@ -33,6 +33,7 @@
       <tr><td><code>/en-de/</code></td><td>en</td><td>German (mismatch)</td></tr>
       <tr><td><code>/fr-en/</code></td><td>fr</td><td>English (mismatch)</td></tr>
       <tr><td><code>/widget/</code></td><td>en, or <code>?hl=&lt;code&gt;</code> / <code>hl=none</code></td><td>English, generic page for any widget</td></tr>
+      <tr><td><code>/clip/</code></td><td>en</td><td>English, embed container clipping (<code>clip</code>, <code>w</code>, <code>h</code>, <code>pad</code>, <code>on</code>, <code>transform</code>, <code>resize</code>, <code>align</code>, <code>edge</code>, <code>dir</code>)</td></tr>
       <tr><td><code>/pricing-en/</code></td><td>en</td><td>English shop / pricing samples</td></tr>
       <tr><td><code>/pricing-de/</code></td><td>de</td><td>German shop / pricing samples</td></tr>
       <tr><td><code>/pricing-fr/</code></td><td>fr</td><td>French shop / pricing samples</td></tr>
@@ -60,6 +61,7 @@
       ['en + ?lang=de', 'en/index.html', 'lang=de'], ['de page', 'de/index.html'], ['pt-PT page', 'pt-PT/index.html'],
       ['pt page', 'pt/index.html'], ['No lang attribute', 'nolang/index.html'], ['en-US page', 'en-US/index.html'], ['German, no lang', 'de-nolang/index.html'], ['lang=en, German text', 'en-de/index.html'], ['lang=fr, English text', 'fr-en/index.html'], ['Blocked localStorage', 'en/index.html', 'nostorage=1'],
       ['Floating / body placement', 'en/index.html', 'place=body'], ['Generic widget page', 'widget/index.html'],
+      ['Clipping: overflow hidden', 'clip/index.html', 'clip=hidden'], ['Clipping: none', 'clip/index.html', 'clip=none'], ['Clipping: edge to edge', 'clip/index.html', 'edge=1'], ['Clipping: RTL', 'clip/index.html', 'dir=rtl'],
       ['Pricing EN', 'pricing-en/index.html'], ['Pricing DE', 'pricing-de/index.html'], ['Pricing FR', 'pricing-fr/index.html'],
       ['Pricing RU', 'pricing-ru/index.html'], ['Pricing (no lang)', 'pricing-nolang/index.html']
     ];
